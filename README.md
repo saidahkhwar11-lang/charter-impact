@@ -28,3 +28,6 @@ Upload these files to the repository root:
 - README.md
 
 Then publish from `main` / `(root)` in GitHub Pages.
+
+
+Nomination integration: Microsoft Form is embedded directly inside the website modal using the school response link with embed=true. No Power Automate Premium HTTP trigger is required; the existing Microsoft Forms -> Power Automate -> Excel flow remains in use.
