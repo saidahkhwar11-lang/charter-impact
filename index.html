@@ -3,186 +3,101 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="من حصة إلى أثر - تحديات الميثاق الوطني للتعليم لتفعيل حصص الاحتياط" />
-  <title>من حصة إلى أثر | تحديات الميثاق</title>
+  <meta name="description" content="من حصة إلى أثر - برنامج تفعيل حصص الاحتياط في ضوء الميثاق الوطني للتعليم" />
+  <title>من حصة إلى أثر | Charter Impact</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="#home" aria-label="Home">
-        <div class="brand-mark">أثر</div>
-        <div>
-          <strong data-i18n="brandTitle">من حصة إلى أثر</strong>
-          <span data-i18n="brandSub">تحديات الميثاق</span>
-        </div>
+        <span class="brand-mark">أثر</span>
+        <span class="brand-copy"><strong data-i18n="brandTitle">من حصة إلى أثر</strong><small data-i18n="brandSub">تحديات الميثاق</small></span>
       </a>
-      <nav class="nav" aria-label="Primary navigation">
-        <a href="#about" data-i18n="navAbout">الفكرة</a>
-        <a href="#implementation" data-i18n="navImplementation">التطبيق</a>
-        <a href="#cards" data-i18n="navCards">البطاقات</a>
-        <a href="#ambassadors" data-i18n="navAmbassadors">سفيرات الميثاق</a>
-      </nav>
-      <div class="actions">
-        <button id="langToggle" class="btn btn-light">EN</button>
-        <button id="printBtn" class="btn btn-outline" data-i18n="print">طباعة</button>
+      <div class="top-actions">
+        <button id="langToggle" class="btn btn-light" type="button">EN</button>
+        <button id="printBtn" class="icon-btn" type="button" title="Print" aria-label="Print">⎙</button>
       </div>
     </div>
   </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="hero-pattern"></div>
-      <div class="container hero-grid">
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-inner">
         <div class="hero-copy">
           <span class="eyebrow" data-i18n="heroEyebrow">مدرسة الريادة | 2026–2027</span>
           <h1 data-i18n="heroTitle">من حصة إلى <span>أثر</span></h1>
-          <p class="hero-lead" data-i18n="heroLead">برنامج إبداعي يحوّل حصة الاحتياط إلى تجربة قصيرة وممتعة يمارس فيها الطلبة قيم الميثاق الوطني للتعليم وسماته ومهاراته من خلال تحديات عملية قابلة للملاحظة والترشيح.</p>
-          <div class="hero-buttons">
-            <a class="btn btn-primary" href="#cards" data-i18n="exploreCards">استكشفي البطاقات</a>
-            <a class="btn btn-secondary" href="#implementation" data-i18n="seeImplementation">شاهدي آلية التطبيق</a>
-          </div>
-          <div class="hero-stats">
-            <div><strong>24</strong><span data-i18n="statChallenges">تحدياً</span></div>
-            <div><strong>3</strong><span data-i18n="statPillars">محاور</span></div>
-            <div><strong>4</strong><span data-i18n="statSteps">خطوات للمعلمة</span></div>
+          <p data-i18n="heroLead">برنامج إبداعي يحوّل حصة الاحتياط إلى تجربة قصيرة وممتعة يمارس فيها الطلبة عناصر الميثاق الوطني للتعليم بصورة عملية.</p>
+          <div class="hero-badges">
+            <span><b>24</b> <i data-i18n="statChallenges">تحدياً</i></span>
+            <span><b>3</b> <i data-i18n="statPillars">محاور</i></span>
+            <span><b>1</b> <i data-i18n="statClick">ترشيح بضغطة واحدة</i></span>
           </div>
         </div>
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
-          <div class="visual-core">
-            <div class="core-icon">✦</div>
-            <strong data-i18n="coreTitle">الميثاق في الممارسة</strong>
-            <span data-i18n="coreSub">قيمة • سمة • مهارة • أثر</span>
-          </div>
-          <div class="floating-card fc1"><span>01</span><b data-i18n="float1">رمز وقيمة</b></div>
-          <div class="floating-card fc2"><span>16</span><b data-i18n="float2">AI: استخدم–تحقق–قرر</b></div>
-          <div class="floating-card fc3"><span>23</span><b data-i18n="float3">مهمة الثلاثة</b></div>
-        </div>
+        <div class="hero-symbol" aria-hidden="true"><span>✦</span><b data-i18n="coreTitle">الميثاق في الممارسة</b><small data-i18n="coreSub">قيمة • سمة • مهارة • أثر</small></div>
       </div>
     </section>
 
-    <section id="about" class="section">
-      <div class="container">
-        <div class="section-heading centered">
-          <span class="eyebrow" data-i18n="aboutEyebrow">الفكرة</span>
-          <h2 data-i18n="aboutTitle">حصة احتياط قصيرة… أثر يمتد أبعد من الحصة</h2>
-          <p data-i18n="aboutText">بدلاً من أن تكون حصة الاحتياط وقتاً منفصلاً عن أهداف المدرسة، يستخدم هذا المشروع بطاقات تحدٍ جاهزة تربط المواقف اليومية مباشرة بعناصر الميثاق. لا يكتفي الطالب بمعرفة القيمة أو المهارة، بل يمارسها ويقدم دليلاً بسيطاً على تطبيقها.</p>
-        </div>
+    <section class="container quick-hub" aria-label="Project sections">
+      <button class="hub-card" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card" data-panel="implementationPanel" type="button"><span class="hub-icon">✓</span><strong data-i18n="hubImplementation">آلية التطبيق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card featured" data-panel="cardsPanel" type="button"><span class="hub-icon">▦</span><strong data-i18n="hubCards">بطاقات التحديات</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card" data-panel="ambassadorsPanel" type="button"><span class="hub-icon">★</span><strong data-i18n="hubAmbassadors">سفيرات الميثاق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+    </section>
+
+    <section class="panel-shell container">
+      <div id="ideaPanel" class="content-panel" hidden>
+        <div class="panel-head"><div><span class="eyebrow dark" data-i18n="aboutEyebrow">الفكرة</span><h2 data-i18n="aboutTitle">حصة احتياط قصيرة… أثر يمتد أبعد من الحصة</h2></div><button class="panel-close" data-close-panel type="button">×</button></div>
+        <p class="lead" data-i18n="aboutText">يحوّل المشروع حصة الاحتياط إلى مساحة قصيرة لتجسيد الميثاق في الحياة المدرسية. تستخدم المعلمة تحديات جاهزة تجعل الطالبة تمارس عنصراً محدداً من الهوية الوطنية أو السمات أو المهارات، ثم يظهر أثر الممارسة في سلوك أو منتج يمكن ملاحظته.</p>
         <div class="pillars-grid">
-          <article class="pillar national">
-            <div class="pillar-icon">◆</div>
-            <span class="pillar-label" data-i18n="pillarOneLabel">المحور الأول</span>
-            <h3 data-i18n="pillarNational">الهوية الوطنية</h3>
-            <p data-i18n="pillarNationalDesc">الانتماء، اللغة العربية، النزاهة، الإحسان، المرونة، المبادرة وغيرها من القيم التي تظهر في السلوك اليومي.</p>
-          </article>
-          <article class="pillar traits">
-            <div class="pillar-icon">◉</div>
-            <span class="pillar-label" data-i18n="pillarTwoLabel">المحور الثاني</span>
-            <h3 data-i18n="pillarTraits">السمات الشخصية</h3>
-            <p data-i18n="pillarTraitsDesc">التنظيم الذاتي، العمل الجماعي، الثقة بالنفس، الصحة، الوعي الثقافي والتعلم المستمر.</p>
-          </article>
-          <article class="pillar skills">
-            <div class="pillar-icon">✦</div>
-            <span class="pillar-label" data-i18n="pillarThreeLabel">المحور الثالث</span>
-            <h3 data-i18n="pillarSkills">المهارات المستقبلية</h3>
-            <p data-i18n="pillarSkillsDesc">التفكير النقدي، التواصل، الذكاء الاصطناعي، القراءة والكتابة، الإبداع، الحساب والثقافة المالية.</p>
-          </article>
+          <article><span>◆</span><h3 data-i18n="pillarNational">الهوية الوطنية</h3><p data-i18n="pillarNationalDesc">منظومة القيم والمبادئ التي تشكّل شخصية المتعلم، وتجعله متجذراً في ثقافته، محافظاً على قيم مجتمعه، وقادراً على الإسهام بفاعلية في بناء مستقبل وطنه.</p></article>
+          <article><span>◉</span><h3 data-i18n="pillarTraits">السمات الشخصية</h3><p data-i18n="pillarTraitsDesc">الخصائص الشخصية والسلوكية التي ينبغي أن يتحلى بها المتعلم في تعاملاته اليومية داخل المدرسة وخارجها.</p></article>
+          <article><span>✦</span><h3 data-i18n="pillarSkills">المهارات المستقبلية</h3><p data-i18n="pillarSkillsDesc">الكفاءات العملية والمعرفية التي يحتاجها المتعلم في دولة الإمارات للنجاح في عالم متغير ومتطور.</p></article>
         </div>
+        <div class="reference-box"><strong data-i18n="officialTitle">من الميثاق إلى الممارسة المدرسية</strong><p data-i18n="officialText">يستند المشروع إلى الدليل التعريفي للميثاق الوطني للتعليم، الذي يحدد ملامح المتعلم في دولة الإمارات عبر الهوية الوطنية والسمات والمهارات، ويوجه إلى ترجمة القيم التربوية والمجتمعية عملياً في البيئة المدرسية.</p></div>
       </div>
-    </section>
 
-    <section class="section official-framework">
-      <div class="container">
-        <div class="section-heading centered">
-          <span class="eyebrow" data-i18n="officialEyebrow">المرجع الرسمي</span>
-          <h2 data-i18n="officialTitle">من الميثاق إلى الممارسة المدرسية</h2>
-          <p data-i18n="officialText">يستند المشروع إلى الدليل التعريفي للميثاق الوطني للتعليم، الذي يحدد ملامح المتعلم في دولة الإمارات عبر الهوية الوطنية والسمات والمهارات، ويوجه إلى ترجمة القيم التربوية والمجتمعية عملياً في البيئة المدرسية.</p>
-        </div>
-        <div class="official-goals">
-          <article><span>01</span><strong data-i18n="goal1">توحيد توجه التعليم نحو هدف وطني مشترك</strong></article>
-          <article><span>02</span><strong data-i18n="goal2">تحصين الهوية الوطنية والانتماء والمسؤولية</strong></article>
-          <article><span>03</span><strong data-i18n="goal3">إعداد جيل متعلم ومتمكن من مهارات المستقبل</strong></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="implementation" class="section section-soft">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div>
-            <span class="eyebrow" data-i18n="implementationEyebrow">آلية التطبيق</span>
-            <h2 data-i18n="implementationTitle">أربع خطوات فقط للمعلمة</h2>
-          </div>
-          <p data-i18n="implementationIntro">صُممت الآلية لتكون خفيفة وسريعة؛ لا تحتاج المعلمة إلى إعداد تقرير أو حساب نقاط أثناء الحصة.</p>
-        </div>
+      <div id="implementationPanel" class="content-panel" hidden>
+        <div class="panel-head"><div><span class="eyebrow dark" data-i18n="implementationEyebrow">آلية التطبيق</span><h2 data-i18n="implementationTitle">أربع خطوات فقط للمعلمة</h2></div><button class="panel-close" data-close-panel type="button">×</button></div>
+        <p class="lead" data-i18n="implementationIntro">الآلية سريعة وخفيفة، ولا تحتاج المعلمة إلى كتابة تقرير أو حساب نقاط أثناء الحصة.</p>
         <div class="steps-grid">
-          <article class="step"><span>01</span><h3 data-i18n="step1Title">اختاري</h3><p data-i18n="step1Text">اختاري بطاقة مناسبة لعمر الطالبات والوقت المتاح.</p></article>
-          <article class="step"><span>02</span><h3 data-i18n="step2Title">نفّذي</h3><p data-i18n="step2Text">اقرئي عنصر الميثاق المستهدف ثم نفّذي التحدي كما هو.</p></article>
-          <article class="step"><span>03</span><h3 data-i18n="step3Title">لاحظي</h3><p data-i18n="step3Text">راقبي من أظهر القيمة أو السمة أو المهارة فعلياً أثناء النشاط.</p></article>
-          <article class="step"><span>04</span><h3 data-i18n="step4Title">رشّحي</h3><p data-i18n="step4Text">رشحي بحد أقصى 3 طالبات واكتبي على بطاقة الترشيح: نجمة + رقم التحدي + التاريخ + التوقيع.</p></article>
+          <article><b>01</b><h3 data-i18n="step1Title">اختاري</h3><p data-i18n="step1Text">اختاري بطاقة مناسبة لعمر الطالبات والوقت المتاح.</p></article>
+          <article><b>02</b><h3 data-i18n="step2Title">نفّذي</h3><p data-i18n="step2Text">اقرئي عنصر الميثاق المستهدف ثم نفّذي التحدي.</p></article>
+          <article><b>03</b><h3 data-i18n="step3Title">لاحظي</h3><p data-i18n="step3Text">راقبي من أظهر العنصر المستهدف فعلياً.</p></article>
+          <article><b>04</b><h3 data-i18n="step4Title">رشّحي</h3><p data-i18n="step4Text">افتحي نموذج الترشيح، اختاري اسم المعلمة والصف، ثم أضيفي جميع الطالبات المستحقات وأرسلي الكل بضغطة واحدة.</p></article>
         </div>
-        <div class="implementation-note">
-          <div class="note-icon">!</div>
-          <div><strong data-i18n="importantTitle">مهم</strong><p data-i18n="importantText">الترشيح ليس للإجابة الصحيحة أو المشاركة العادية فقط؛ بل لسلوك أو أداء يُظهر تطبيقاً واضحاً لعنصر من الميثاق.</p></div>
-        </div>
+        <div class="important"><b>!</b><span><strong data-i18n="importantTitle">مهم</strong><p data-i18n="importantText">الترشيح ليس للإجابة الصحيحة أو المشاركة العادية فقط؛ بل لسلوك أو أداء يُظهر تطبيقاً واضحاً لعنصر من الميثاق.</p></span></div>
       </div>
-    </section>
 
-    <section id="cards" class="section cards-section">
-      <div class="container">
-        <div class="section-heading split-heading">
-          <div><span class="eyebrow" data-i18n="cardsEyebrow">مكتبة التحديات</span><h2 data-i18n="cardsTitle">بطاقات الميثاق</h2></div>
-          <p data-i18n="cardsIntro">استخدمي الفلاتر للوصول إلى التحدي المناسب، ثم افتحي البطاقة لقراءة خطوات التنفيذ ودليل الممارسة وسؤال الأثر.</p>
-        </div>
+      <div id="cardsPanel" class="content-panel" hidden>
+        <div class="panel-head"><div><span class="eyebrow dark" data-i18n="cardsEyebrow">مكتبة التحديات</span><h2 data-i18n="cardsTitle">بطاقات الميثاق</h2></div><button class="panel-close" data-close-panel type="button">×</button></div>
         <div class="toolbar">
-          <div class="filters" id="filters">
-            <button class="filter active" data-filter="all" data-i18n="filterAll">الكل</button>
-            <button class="filter" data-filter="national" data-i18n="filterNational">الهوية الوطنية</button>
-            <button class="filter" data-filter="traits" data-i18n="filterTraits">السمات</button>
-            <button class="filter" data-filter="skills" data-i18n="filterSkills">المهارات</button>
-            <button class="filter" data-filter="multi" data-i18n="filterMulti">متعدد المحاور</button>
+          <div class="filters">
+            <button class="filter active" data-filter="all" data-i18n="filterAll" type="button">الكل</button>
+            <button class="filter" data-filter="national" data-i18n="filterNational" type="button">الهوية الوطنية</button>
+            <button class="filter" data-filter="traits" data-i18n="filterTraits" type="button">السمات</button>
+            <button class="filter" data-filter="skills" data-i18n="filterSkills" type="button">المهارات</button>
+            <button class="filter" data-filter="multi" data-i18n="filterMulti" type="button">متعدد المحاور</button>
           </div>
-          <label class="search-wrap"><span>⌕</span><input id="cardSearch" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="ابحثي عن تحدٍ أو عنصر من الميثاق…"></label>
+          <label class="search-wrap"><span>⌕</span><input id="cardSearch" type="search" data-i18n-placeholder="searchPlaceholder" placeholder="ابحثي عن تحدٍ…" /></label>
         </div>
         <div id="cardsGrid" class="cards-grid"></div>
       </div>
-    </section>
 
-    <section id="ambassadors" class="section ambassadors">
-      <div class="container ambassador-grid">
-        <div>
-          <span class="eyebrow light" data-i18n="ambEyebrow">سفيرات الميثاق</span>
-          <h2 data-i18n="ambTitle">من الترشيح إلى سفيرة الميثاق</h2>
-          <p data-i18n="ambText">تستخدم ترشيحات حصص الاحتياط كأدلة متراكمة على الممارسة الفعلية. تراجع المنسقة الترشيحات دورياً، وتُعتمد الأختام في جواز الميثاق وفق آلية المدرسة، ثم يمكن ترشيح الطالبات ذوات الأثر المستمر للقب «سفيرة الميثاق».</p>
-          <div class="flow-line">
-            <span data-i18n="flow1">ترشيح ★</span><i>←</i><span data-i18n="flow2">أدلة متراكمة</span><i>←</i><span data-i18n="flow3">مراجعة</span><i>←</i><span data-i18n="flow4">ختم الجواز</span><i>←</i><span data-i18n="flow5">سفيرة الميثاق</span>
-          </div>
-        </div>
-        <div class="nomination-card">
-          <div class="nom-head"><span>★</span><strong data-i18n="nomTitle">بطاقة ترشيح مختصرة</strong></div>
-          <div class="nom-row"><span data-i18n="nomStudent">اسم الطالبة</span><b>____________________</b></div>
-          <div class="nom-stamps"><span>★ #07</span><span>★ #14</span><span>★ #23</span></div>
-          <p data-i18n="nomFooter">رقم التحدي + التاريخ + توقيع المعلمة = دليل ممارسة بسيط وواضح.</p>
-        </div>
+      <div id="ambassadorsPanel" class="content-panel" hidden>
+        <div class="panel-head"><div><span class="eyebrow dark" data-i18n="ambEyebrow">سفيرات الميثاق</span><h2 data-i18n="ambTitle">من الترشيح إلى سفيرة الميثاق</h2></div><button class="panel-close" data-close-panel type="button">×</button></div>
+        <p class="lead" data-i18n="ambText">تتحول الترشيحات إلى أدلة متراكمة على الممارسة الفعلية. تراجع المنسقة الترشيحات دورياً، وتُعتمد الأختام في جواز الميثاق وفق آلية المدرسة، ثم يمكن ترشيح الطالبات ذوات الأثر المستمر للقب «سفيرة الميثاق».</p>
+        <div class="flow-line"><span data-i18n="flow1">ترشيح ★</span><i>←</i><span data-i18n="flow2">أدلة متراكمة</span><i>←</i><span data-i18n="flow3">مراجعة</span><i>←</i><span data-i18n="flow4">ختم الجواز</span><i>←</i><span data-i18n="flow5">سفيرة الميثاق</span></div>
+        <button id="generalNominationBtn" class="btn btn-primary nomination-launch" type="button" data-i18n="nominateNow">ترشيح الطالبات الآن</button>
       </div>
     </section>
   </main>
 
-  <footer>
-    <div class="container footer-inner">
-      <div><strong data-i18n="footerTitle">من حصة إلى أثر</strong><span data-i18n="footerSub">برنامج تفعيل حصص الاحتياط في ضوء الميثاق الوطني للتعليم</span></div>
-      <p data-i18n="footerSchool">مدرسة الريادة | 2026–2027</p>
-    </div>
-  </footer>
+  <footer><div class="container footer-inner"><div><strong data-i18n="footerTitle">من حصة إلى أثر</strong><span data-i18n="footerSub">برنامج تفعيل حصص الاحتياط في ضوء الميثاق الوطني للتعليم</span></div><p data-i18n="footerSchool">مدرسة الريادة | 2026–2027</p></div></footer>
 
-  <div id="cardModal" class="modal" aria-hidden="true">
-    <div class="modal-backdrop" data-close-modal></div>
-    <article class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button class="modal-close" data-close-modal aria-label="Close">×</button>
-      <div id="modalContent"></div>
-    </article>
-  </div>
+  <div id="cardModal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-card-modal></div><article class="modal-card" role="dialog" aria-modal="true"><button class="modal-close" data-close-card-modal type="button">×</button><div id="modalContent"></div></article></div>
+
+  <div id="nominationModal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-nomination></div><article class="modal-card nomination-modal-card" role="dialog" aria-modal="true"><button class="modal-close" data-close-nomination type="button">×</button><div class="nomination-head"><span>★</span><div><small data-i18n="nominationEyebrow">ترشيح سريع</small><h2 data-i18n="nominationTitle">ترشيح طالبات الميثاق</h2></div></div><p class="nomination-hint" data-i18n="nominationHint">ثلاث خانات فقط، ثم إرسال جميع الطالبات المختارات بضغطة واحدة.</p><div id="nominationContext" class="nomination-context"></div><form id="nominationForm"><label><span data-i18n="teacherName">اسم المعلمة</span><input id="teacherName" name="teacherName" required autocomplete="name" data-i18n-placeholder="teacherPlaceholder" placeholder="اكتبي اسم المعلمة" /></label><label><span data-i18n="className">الصف / الشعبة</span><input id="className" name="className" required data-i18n-placeholder="classPlaceholder" placeholder="مثال: 9/1" /></label><label><span data-i18n="studentNames">أسماء الطالبات</span><textarea id="studentNames" name="studentNames" rows="6" required data-i18n-placeholder="studentsPlaceholder" placeholder="اكتبي الأسماء، كل اسم في سطر أو افصلي بينها بفاصلة"></textarea><small data-i18n="studentsHelp">لا يوجد حد لعدد الطالبات.</small></label><button class="btn btn-primary submit-all" type="submit"><span data-i18n="submitAll">إرسال الكل</span> <b>★</b></button><p id="nominationStatus" class="form-status" aria-live="polite"></p></form></article></div>
 
   <script src="app.js"></script>
 </body>
