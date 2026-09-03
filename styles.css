@@ -7,3 +7,4 @@
 .forms-embed-wrap{margin-top:14px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#f7f8fa;min-height:620px}
 .forms-embed-wrap iframe{display:block;width:100%;height:68vh;min-height:620px;border:0;background:#fff}
 @media(max-width:620px){.nomination-embed-card{width:calc(100% - 16px);margin:2vh auto;max-height:96vh;padding:18px}.forms-embed-wrap iframe{height:76vh;min-height:660px}}
+.ranking-loading{grid-column:1/-1;text-align:center;padding:28px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--muted);font-weight:700}

@@ -36,8 +36,43 @@ const cards=[
 
 const COLORS={national:'#b88a32',traits:'#2e7d78',skills:'#6f5a94',multi:'#6f171b'};
 const SOFT={national:'#fff8e8',traits:'#eaf7f5',skills:'#f4f0fa',multi:'#f7eeee'};
-// Approved public results. Replace names/counts when the coordinator approves the dashboard results.
+// Live approved Top 3 results are read automatically from GitHub Issue #1.
+const TOP3_ISSUE_API='https://api.github.com/repos/saidahkhwar11-lang/charter-impact/issues/1';
 const AMBASSADOR_DATA={5:[],6:[],7:[],8:[],9:[],10:[],11:[],12:[]};
+let ambassadorsLoaded=false,ambassadorsLoading=null;
+function normalizeTop3(rows){
+  Object.keys(AMBASSADOR_DATA).forEach(g=>AMBASSADOR_DATA[g]=[]);
+  (Array.isArray(rows)?rows:[]).forEach(row=>{
+    const grade=String(row?.grade??'').trim();
+    if(!Object.prototype.hasOwnProperty.call(AMBASSADOR_DATA,grade))return;
+    ['first','second','third'].forEach(key=>{
+      const name=String(row?.[key]??'').trim();
+      if(name) AMBASSADOR_DATA[grade].push({name});
+    });
+  });
+}
+async function loadAmbassadors(){
+  if(ambassadorsLoaded)return;
+  if(ambassadorsLoading)return ambassadorsLoading;
+  ambassadorsLoading=(async()=>{
+    try{
+      const cacheKey='charterTop3CacheV1',cached=localStorage.getItem(cacheKey);
+      if(cached){
+        const c=JSON.parse(cached);
+        if(Date.now()-c.time<300000){normalizeTop3(c.data);ambassadorsLoaded=true;return;}
+      }
+      const res=await fetch(TOP3_ISSUE_API,{headers:{Accept:'application/vnd.github+json'},cache:'no-store'});
+      if(!res.ok)throw new Error('GitHub '+res.status);
+      const issue=await res.json();
+      const rows=JSON.parse((issue.body||'[]').trim());
+      normalizeTop3(rows);
+      localStorage.setItem(cacheKey,JSON.stringify({time:Date.now(),data:rows}));
+      ambassadorsLoaded=true;
+    }catch(err){console.warn('Top 3 data could not be loaded:',err);}
+    finally{ambassadorsLoading=null;}
+  })();
+  return ambassadorsLoading;
+}
 let lang='ar',filter='all',cardsLoaded=false,currentCard=null;
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 function t(k){return I18N[lang][k]||k}
@@ -59,12 +94,17 @@ function openPanel(id){
   panel.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
-function renderAmbassadors(){
-  const grid=$('#ambassadorsGrid'); if(!grid)return; grid.innerHTML='';
+async function renderAmbassadors(){
+  const grid=$('#ambassadorsGrid'); if(!grid)return;
+  if(!ambassadorsLoaded){
+    grid.innerHTML=`<div class="ranking-loading">${lang==='ar'?'جارٍ تحديث قائمة سفيرات الميثاق…':'Updating Charter Ambassadors…'}</div>`;
+    await loadAmbassadors();
+  }
+  grid.innerHTML='';
   Object.keys(AMBASSADOR_DATA).forEach(grade=>{
     const students=AMBASSADOR_DATA[grade]||[];
     const card=document.createElement('article'); card.className='grade-ranking';
-    const rows=[0,1,2].map((i)=>{const st=students[i]; const place=t('place'+(i+1)); return `<div class="rank-row"><b>${i+1}</b><span><strong>${st?.name||t('waiting')}</strong>${st?.count?`<small>${st.count} ★</small>`:''}</span><em>${place}</em></div>`}).join('');
+    const rows=[0,1,2].map((i)=>{const st=students[i]; const place=t('place'+(i+1)); return `<div class="rank-row"><b>${i+1}</b><span><strong>${st?.name||t('waiting')}</strong></span><em>${place}</em></div>`}).join('');
     card.innerHTML=`<h4>${lang==='ar'?'الصف':'Grade'} ${grade}</h4>${rows}`; grid.appendChild(card);
   });
 }
