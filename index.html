@@ -29,7 +29,7 @@
           <h1 data-i18n="heroTitle">من حصة إلى <span>أثر</span></h1>
           <p data-i18n="heroLead">برنامج إبداعي يحوّل حصة الاحتياط إلى تجربة قصيرة وممتعة يمارس فيها الطلبة عناصر الميثاق الوطني للتعليم بصورة عملية.</p>
           <div class="hero-badges">
-            <span><b>24</b> <i data-i18n="statChallenges">تحدياً</i></span>
+            <span><b>30</b> <i data-i18n="statChallenges">نشاطاً تفاعلياً</i></span>
             <span><b>3</b> <i data-i18n="statPillars">محاور</i></span>
             <span><b>1</b> <i data-i18n="statClick">ترشيح بضغطة واحدة</i></span>
           </div>
@@ -38,11 +38,13 @@
       </div>
     </section>
 
-    <section class="container quick-hub" aria-label="Project sections">
-      <button class="hub-card" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card" data-panel="implementationPanel" type="button"><span class="hub-icon">✓</span><strong data-i18n="hubImplementation">آلية التطبيق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card featured" data-panel="cardsPanel" type="button"><span class="hub-icon">▦</span><strong data-i18n="hubCards">بطاقات التحديات</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+    <section class="container quick-hub pro-hub" aria-label="Project sections">
+      <button class="hub-card featured games-hub" data-panel="gamesPanel" type="button"><span class="hub-icon">◈</span><strong>ألعاب الميثاق</strong><small>Board Games • اضغطي للعب</small></button>
+      <button class="hub-card" data-panel="cardsPanel" type="button"><span class="hub-icon">▦</span><strong data-i18n="hubCards">بطاقات التحديات</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
       <button class="hub-card" data-panel="ambassadorsPanel" type="button"><span class="hub-icon">★</span><strong data-i18n="hubAmbassadors">سفيرات الميثاق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card" data-panel="implementationPanel" type="button"><span class="hub-icon">✓</span><strong data-i18n="hubImplementation">آلية التطبيق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
+      <button class="hub-card nominate-hub" id="hubNominateBtn" type="button"><span class="hub-icon">＋</span><strong>ترشيح سريع</strong><small>Quick Nomination</small></button>
     </section>
 
     <section class="panel-shell container">
@@ -67,6 +69,12 @@
           <article><b>04</b><h3 data-i18n="step4Title">رشّحي</h3><p data-i18n="step4Text">افتحي نموذج الترشيح، اختاري اسم المعلمة والصف، ثم أضيفي جميع الطالبات المستحقات وأرسلي الكل بضغطة واحدة.</p></article>
         </div>
         <div class="important"><b>!</b><span><strong data-i18n="importantTitle">مهم</strong><p data-i18n="importantText">الترشيح ليس للإجابة الصحيحة أو المشاركة العادية فقط؛ بل لسلوك أو أداء يُظهر تطبيقاً واضحاً لعنصر من الميثاق.</p></span></div>
+      </div>
+
+      <div id="gamesPanel" class="content-panel games-panel" hidden>
+        <div class="panel-head"><div><span class="eyebrow dark">ألعاب السبورة التفاعلية</span><h2>اختاري اللعبة وابدئي فوراً</h2><p class="panel-subline">ألعاب جاهزة للعرض على السبورة الذكية — تُفتح عند الطلب فقط لسرعة الموقع.</p></div><button class="panel-close" data-close-panel type="button">×</button></div>
+        <div class="game-quickbar"><span>⚡ بدون تجهيز مسبق</span><span>▣ عرض كامل للسبورة</span><span>⏱ مؤقت مدمج</span><span>★ مرتبطة مباشرة بالميثاق</span></div>
+        <div id="gamesGrid" class="games-grid"></div>
       </div>
 
       <div id="cardsPanel" class="content-panel" hidden>
@@ -105,6 +113,23 @@
   <footer><div class="container footer-inner"><div><strong data-i18n="footerTitle">من حصة إلى أثر</strong><span data-i18n="footerSub">برنامج تفعيل حصص الاحتياط في ضوء الميثاق الوطني للتعليم</span></div><p data-i18n="footerSchool">مدرسة الريادة | 2026–2027</p></div></footer>
 
   <div id="cardModal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-card-modal></div><article class="modal-card" role="dialog" aria-modal="true"><button class="modal-close" data-close-card-modal type="button">×</button><div id="modalContent"></div></article></div>
+
+  <div id="gameModal" class="modal game-modal" aria-hidden="true">
+    <div class="modal-backdrop" data-close-game></div>
+    <section class="board-stage" role="dialog" aria-modal="true" aria-label="Charter board game">
+      <div class="board-topbar">
+        <div><span id="boardGameType" class="board-kicker">لعبة الميثاق</span><h2 id="boardGameTitle">Charter Game</h2></div>
+        <div class="board-actions"><button id="boardFullscreen" type="button">⛶ عرض كامل</button><button data-close-game type="button">×</button></div>
+      </div>
+      <div class="board-scoreline">
+        <div class="team-score"><button data-score="a" data-delta="-1">−</button><strong><span>الفريق A</span><b id="scoreA">0</b></strong><button data-score="a" data-delta="1">＋</button></div>
+        <div class="board-timer"><button id="timerStart" type="button">▶</button><strong id="timerValue">60</strong><span>ثانية</span><button id="timerReset" type="button">↻</button></div>
+        <div class="team-score"><button data-score="b" data-delta="-1">−</button><strong><span>الفريق B</span><b id="scoreB">0</b></strong><button data-score="b" data-delta="1">＋</button></div>
+      </div>
+      <div id="boardContent" class="board-content"></div>
+      <div class="board-controls"><button id="boardNext" class="btn btn-primary" type="button">التالي / Next</button><button id="boardReveal" class="btn board-secondary" type="button">إظهار الإجابة / Reveal</button></div>
+    </section>
+  </div>
 
   <div id="nominationModal" class="modal" aria-hidden="true"><div class="modal-backdrop" data-close-nomination></div><article class="modal-card nomination-modal-card nomination-embed-card" role="dialog" aria-modal="true"><button class="modal-close" data-close-nomination type="button">×</button><div class="nomination-head"><span>★</span><div><small data-i18n="nominationEyebrow">ترشيح سريع</small><h2 data-i18n="nominationTitle">ترشيح طالبات الميثاق</h2></div></div><p class="nomination-hint">يتم إرسال الترشيح مباشرة عبر نموذج المدرسة المضمّن أدناه، دون مغادرة الموقع.</p><div id="nominationContext" class="nomination-context"></div><div class="forms-embed-wrap"><iframe id="nominationFormFrame" title="Charter Ambassadors Nomination | ترشيح سفيرات الميثاق" src="https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=GDmBaUijT0KBaEskboYkXAyyPoioBCtPn5qe7gt0WWxUQlI1MkFHNVpYUkJSS0RUWVA3QkYzSktDQy4u&amp;embed=true" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe></div></article></div>
 
