@@ -168,8 +168,8 @@ function closeNomination(){const m=$('#nominationModal');m.classList.remove('sho
 function renderNominationContext(){const box=$('#nominationContext');if(!currentCard){box.classList.remove('show');box.innerHTML='';return}const d=currentCard[lang];box.classList.add('show');box.innerHTML=`<strong>${t('contextChallenge')} #${currentCard.n}: ${d.title}</strong><br>${d.element}<br><small>${t('contextAuto')}</small>`;}
 $('#langToggle').addEventListener('click',()=>{lang=lang==='ar'?'en':'ar';applyLanguage()});
 $('#printBtn').addEventListener('click',()=>window.print());
-$$('.hub-card').forEach(b=>b.addEventListener('click',()=>openPanel(b.dataset.panel)));
-$$('[data-close-panel]').forEach(b=>b.addEventListener('click',()=>b.closest('.content-panel').hidden=true));
+$$('.hub-card').forEach(b=>b.addEventListener('click',()=>{$$('.hub-card').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');openPanel(b.dataset.panel)}));
+$$('[data-close-panel]').forEach(b=>b.addEventListener('click',()=>{b.closest('.content-panel').hidden=true;$$('.hub-card').forEach(x=>x.classList.remove('selected'))}));
 $('#cardSearch').addEventListener('input',()=>{if(cardsLoaded)renderCards()});
 $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{$$('.filter').forEach(b=>b.classList.remove('active'));btn.classList.add('active');filter=btn.dataset.filter;renderCards()}));
 $$('[data-close-card-modal]').forEach(el=>el.addEventListener('click',closeCardModal));
@@ -246,15 +246,15 @@ const CROSSWORD=[
  ['7','أؤمن بقدراتي وأعبّر بجرأة واحترام.','الثقة بالنفس','I believe in my abilities and express myself confidently and respectfully.','Self-Confidence'],
  ['8','أولد أفكاراً جديدة وأحل المشكلات بأساليب مبتكرة.','الإبداع','I generate new ideas and solve problems in innovative ways.','Creativity']
 ];
-let gamesRendered=false,currentGame='wordwall',boardIndex=-1,scoreA=0,scoreB=0,timerSeconds=60,timerHandle=null;
+let gamesRendered=false,currentGame='wordwall',boardIndex=-1,scores={g1:0,g2:0,g3:0,g4:0,g5:0,g6:0},timerSeconds=60,timerHandle=null;
 function renderGames(){
  if(gamesRendered)return; gamesRendered=true;
  const grid=$('#gamesGrid'); if(!grid)return;
  BOARD_GAMES.forEach(g=>{const el=document.createElement('article');el.className='game-card';el.dataset.game=g.id;el.innerHTML=`<span class="game-icon">${g.icon}</span><h3>${lang==='ar'?g.arTitle:g.enTitle}</h3><p>${lang==='ar'?g.arDesc:g.enDesc}</p><span class="play-now">${lang==='ar'?'ابدئي اللعب ←':'Play now →'}</span>`;el.addEventListener('click',()=>openGame(g.id));grid.appendChild(el)})
 }
-function openGame(id){currentGame=id;boardIndex=-1;scoreA=0;scoreB=0;updateScores();resetTimer();const g=BOARD_GAMES.find(x=>x.id===id);$('#boardGameType').textContent=lang==='ar'?'لعبة سبورة تفاعلية':'Interactive Board Game';$('#boardGameTitle').textContent=lang==='ar'?g.arTitle:g.enTitle;nextBoardItem();const m=$('#gameModal');m.classList.add('show');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+function openGame(id){currentGame=id;boardIndex=-1;scores={g1:0,g2:0,g3:0,g4:0,g5:0,g6:0};updateScores();resetTimer();const g=BOARD_GAMES.find(x=>x.id===id);$('#boardGameType').textContent=lang==='ar'?'لعبة سبورة تفاعلية':'Interactive Board Game';$('#boardGameTitle').textContent=lang==='ar'?g.arTitle:g.enTitle;nextBoardItem();const m=$('#gameModal');m.classList.add('show');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
 function closeGame(){clearInterval(timerHandle);timerHandle=null;const m=$('#gameModal');m.classList.remove('show');m.setAttribute('aria-hidden','true');document.body.style.overflow=''}
-function updateScores(){$('#scoreA').textContent=scoreA;$('#scoreB').textContent=scoreB}
+function updateScores(){Object.entries(scores).forEach(([key,value])=>{const el=document.getElementById('score'+key.toUpperCase());if(el)el.textContent=value})}
 function resetTimer(){clearInterval(timerHandle);timerHandle=null;timerSeconds=60;$('#timerValue').textContent=timerSeconds;$('#timerStart').textContent='▶'}
 function toggleTimer(){if(timerHandle){clearInterval(timerHandle);timerHandle=null;$('#timerStart').textContent='▶';return}$('#timerStart').textContent='Ⅱ';timerHandle=setInterval(()=>{timerSeconds--;$('#timerValue').textContent=timerSeconds;if(timerSeconds<=0){clearInterval(timerHandle);timerHandle=null;$('#timerStart').textContent='▶'}},1000)}
 function sample(arr){return arr[Math.floor(Math.random()*arr.length)]}
@@ -270,7 +270,7 @@ function nextBoardItem(){resetTimer();const c=$('#boardContent');$('#boardReveal
 function revealBoard(){if(currentGame==='crossword'){$$('.cross-clue').forEach(x=>x.classList.add('revealed'));return}$('#boardAnswer')?.classList.add('show')}
 $$('[data-close-game]').forEach(x=>x.addEventListener('click',closeGame));
 $('#boardNext')?.addEventListener('click',nextBoardItem);$('#boardReveal')?.addEventListener('click',revealBoard);$('#timerStart')?.addEventListener('click',toggleTimer);$('#timerReset')?.addEventListener('click',resetTimer);
-$$('[data-score]').forEach(b=>b.addEventListener('click',()=>{const delta=Number(b.dataset.delta)||0;if(b.dataset.score==='a')scoreA=Math.max(0,scoreA+delta);else scoreB=Math.max(0,scoreB+delta);updateScores()}));
+$$('[data-score]').forEach(b=>b.addEventListener('click',()=>{const key=b.dataset.score,delta=Number(b.dataset.delta)||0;if(!(key in scores))return;scores[key]=Math.max(0,scores[key]+delta);updateScores()}));
 $('#boardFullscreen')?.addEventListener('click',()=>{const el=$('.board-stage');if(!document.fullscreenElement)el?.requestFullscreen?.();else document.exitFullscreen?.()});
 
 function renderPopupWordWall(){

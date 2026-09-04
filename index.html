@@ -41,7 +41,7 @@
 
     <section class="container quick-hub pro-hub" aria-label="Project sections">
       <button class="hub-card idea-hub" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card featured games-hub" data-panel="gamesPanel" type="button"><span class="hub-icon">◈</span><strong>ألعاب الميثاق</strong><small>Board Games • اضغطي للعب</small></button>
+      <button class="hub-card" data-panel="gamesPanel" type="button"><span class="hub-icon">◈</span><strong>ألعاب الميثاق</strong><small>Board Games • اضغطي للعب</small></button>
       <button class="hub-card" data-panel="cardsPanel" type="button"><span class="hub-icon">▦</span><strong data-i18n="hubCards">بطاقات التحديات</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
       <button class="hub-card" data-panel="implementationPanel" type="button"><span class="hub-icon">✓</span><strong data-i18n="hubImplementation">آلية التطبيق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
       <button class="hub-card" data-panel="ambassadorsPanel" type="button"><span class="hub-icon">★</span><strong data-i18n="hubAmbassadors">سفيرات الميثاق</strong><small data-i18n="hubOpen">اضغطي للعرض والترشيح</small></button>
@@ -122,9 +122,15 @@
         <div class="board-actions"><button id="boardFullscreen" type="button">⛶ عرض كامل</button><button data-close-game type="button">×</button></div>
       </div>
       <div class="board-scoreline">
-        <div class="team-score"><button data-score="a" data-delta="-1">−</button><strong><span>الفريق A</span><b id="scoreA">0</b></strong><button data-score="a" data-delta="1">＋</button></div>
+        <div class="groups-score-grid" aria-label="Group scores">
+          <div class="team-score"><button data-score="g1" data-delta="-1">−</button><strong><span>المجموعة 1</span><b id="scoreG1">0</b></strong><button data-score="g1" data-delta="1">＋</button></div>
+          <div class="team-score"><button data-score="g2" data-delta="-1">−</button><strong><span>المجموعة 2</span><b id="scoreG2">0</b></strong><button data-score="g2" data-delta="1">＋</button></div>
+          <div class="team-score"><button data-score="g3" data-delta="-1">−</button><strong><span>المجموعة 3</span><b id="scoreG3">0</b></strong><button data-score="g3" data-delta="1">＋</button></div>
+          <div class="team-score"><button data-score="g4" data-delta="-1">−</button><strong><span>المجموعة 4</span><b id="scoreG4">0</b></strong><button data-score="g4" data-delta="1">＋</button></div>
+          <div class="team-score"><button data-score="g5" data-delta="-1">−</button><strong><span>المجموعة 5</span><b id="scoreG5">0</b></strong><button data-score="g5" data-delta="1">＋</button></div>
+          <div class="team-score"><button data-score="g6" data-delta="-1">−</button><strong><span>المجموعة 6</span><b id="scoreG6">0</b></strong><button data-score="g6" data-delta="1">＋</button></div>
+        </div>
         <div class="board-timer"><button id="timerStart" type="button">▶</button><strong id="timerValue">60</strong><span>ثانية</span><button id="timerReset" type="button">↻</button></div>
-        <div class="team-score"><button data-score="b" data-delta="-1">−</button><strong><span>الفريق B</span><b id="scoreB">0</b></strong><button data-score="b" data-delta="1">＋</button></div>
       </div>
       <div id="boardContent" class="board-content"></div>
       <div class="board-controls"><button id="boardNext" class="btn btn-primary" type="button">التالي / Next</button><button id="boardReveal" class="btn board-secondary" type="button">إظهار الإجابة / Reveal</button><button id="boardWordWall" class="btn board-wordwall-btn" type="button">▦ جدار الكلمات / Word Wall</button></div>
