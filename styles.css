@@ -45,3 +45,26 @@ body{background:linear-gradient(180deg,#fbfaf8 0,#f6f2ed 100%)}
 .popup-wordwall-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.popup-word-group{border:1px solid #e7e1da;border-radius:20px;padding:16px;background:linear-gradient(180deg,#fff,#fbfaf7)}.popup-word-group h4{margin:0 0 12px;text-align:center;color:#6f171b;font-size:17px}.popup-word-group>div{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}.popup-wall-word{border:1px solid #e7d9d5;background:#fff;border-radius:999px;padding:9px 12px;font:inherit;font-size:13px;font-weight:850;color:#43363a}.popup-wall-word:hover{background:#6f171b;color:#fff;border-color:#6f171b}
 @media(max-width:1150px){.pro-hub{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.pro-hub{grid-template-columns:repeat(2,1fr)}.wordwall-popup-card{inset:3%;padding:16px}.popup-wordwall-grid{grid-template-columns:1fr}.wordwall-popup-head h3{font-size:19px}}
+
+/* ===== BOARD GAME DISPLAY REPAIR ===== */
+.game-modal{overflow:hidden!important}
+.board-stage{height:92vh!important;max-height:92vh!important}
+.board-topbar{flex:0 0 auto;padding:14px 22px!important}
+.board-scoreline{flex:0 0 auto;padding:10px 22px!important}
+.board-content{flex:1 1 auto!important;min-height:0!important;overflow:auto!important;padding:20px 32px!important;align-content:center!important}
+.board-main{max-width:1120px!important;margin:auto!important}
+.board-prompt{font-size:clamp(28px,4vw,54px)!important;line-height:1.28!important;margin:0 auto 12px!important;max-width:1100px!important;overflow-wrap:anywhere}
+.board-subprompt{font-size:clamp(15px,1.65vw,22px)!important;line-height:1.55!important;margin:0 auto!important}
+.board-controls{flex:0 0 auto!important;padding:12px 20px 14px!important;background:#fff!important;gap:10px!important}
+.board-controls .btn{min-width:165px!important;padding:10px 16px!important}
+.word-wall-cloud{max-height:42vh;overflow:auto;padding:5px}
+.wall-word{font-size:clamp(14px,1.5vw,20px)!important;padding:9px 13px!important}
+
+/* Word wall is a true on-demand overlay, not part of the game layout */
+.wordwall-popup{position:fixed!important;inset:0!important;width:100vw!important;height:100vh!important;z-index:10000!important;display:none!important;margin:0!important;padding:0!important}
+.wordwall-popup.show{display:block!important}
+.wordwall-popup-backdrop{position:fixed!important;inset:0!important;background:rgba(15,22,32,.72)!important;backdrop-filter:blur(4px)!important}
+.wordwall-popup-card{position:fixed!important;inset:6vh 6vw!important;max-width:none!important;max-height:88vh!important;margin:0!important;background:#fff!important;border-radius:24px!important;padding:22px!important;overflow:auto!important;z-index:10001!important}
+.popup-wordwall-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+.popup-wall-word{cursor:default!important}
+@media(max-width:700px){.board-stage{height:100vh!important;max-height:100vh!important}.board-content{padding:16px!important}.board-prompt{font-size:clamp(25px,7vw,38px)!important}.board-controls .btn{min-width:0!important;flex:1 1 30%!important}.wordwall-popup-card{inset:2vh 3vw!important;max-height:96vh!important}.popup-wordwall-grid{grid-template-columns:1fr!important}}

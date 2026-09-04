@@ -284,7 +284,7 @@ function renderPopupWordWall(){
 }
 function openWordWallPopup(){renderPopupWordWall();const p=$('#wordWallPopup');p?.classList.add('show');p?.setAttribute('aria-hidden','false')}
 function closeWordWallPopup(){const p=$('#wordWallPopup');p?.classList.remove('show');p?.setAttribute('aria-hidden','true')}
-$('#boardWordWall')?.addEventListener('click',openWordWallPopup);
+$('#boardWordWall')?.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openWordWallPopup()});
 $$('[data-close-wordwall]').forEach(x=>x.addEventListener('click',closeWordWallPopup));
 
-document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#gameModal')?.classList.contains('show'))closeGame()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#wordWallPopup')?.classList.contains('show')){closeWordWallPopup();return}if(e.key==='Escape'&&$('#gameModal')?.classList.contains('show'))closeGame()});
