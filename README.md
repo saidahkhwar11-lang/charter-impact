@@ -31,3 +31,10 @@ Then publish from `main` / `(root)` in GitHub Pages.
 
 
 Nomination integration: Microsoft Form is embedded directly inside the website modal using the school response link with embed=true. No Power Automate Premium HTTP trigger is required; the existing Microsoft Forms -> Power Automate -> Excel flow remains in use.
+
+
+## Classroom-ready content expansion
+- Expanded Question & Answer, Riddles, Drawing, Discussion, Crossword and Word Wall challenge banks.
+- Added non-repeating shuffled rounds until each bank is exhausted.
+- Reworked challenge cards that previously depended on teacher-made cards, external scenarios or later follow-up so prompts are provided directly on the website.
+- Preserved the existing visual design, six-group scoring, timer, fullscreen mode, Word Wall popup, nomination flow and Top 3 dashboard.
