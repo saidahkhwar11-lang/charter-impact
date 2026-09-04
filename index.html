@@ -40,12 +40,11 @@
     </section>
 
     <section class="container quick-hub pro-hub" aria-label="Project sections">
+      <button class="hub-card idea-hub" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
       <button class="hub-card featured games-hub" data-panel="gamesPanel" type="button"><span class="hub-icon">◈</span><strong>ألعاب الميثاق</strong><small>Board Games • اضغطي للعب</small></button>
       <button class="hub-card" data-panel="cardsPanel" type="button"><span class="hub-icon">▦</span><strong data-i18n="hubCards">بطاقات التحديات</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card" data-panel="ambassadorsPanel" type="button"><span class="hub-icon">★</span><strong data-i18n="hubAmbassadors">سفيرات الميثاق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
       <button class="hub-card" data-panel="implementationPanel" type="button"><span class="hub-icon">✓</span><strong data-i18n="hubImplementation">آلية التطبيق</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card" data-panel="ideaPanel" type="button"><span class="hub-icon">◎</span><strong data-i18n="hubIdea">فكرة المشروع</strong><small data-i18n="hubOpen">اضغطي للعرض</small></button>
-      <button class="hub-card nominate-hub" id="hubNominateBtn" type="button"><span class="hub-icon">＋</span><strong>ترشيح سريع</strong><small>Quick Nomination</small></button>
+      <button class="hub-card" data-panel="ambassadorsPanel" type="button"><span class="hub-icon">★</span><strong data-i18n="hubAmbassadors">سفيرات الميثاق</strong><small data-i18n="hubOpen">اضغطي للعرض والترشيح</small></button>
     </section>
 
     <section class="panel-shell container">
@@ -128,7 +127,15 @@
         <div class="team-score"><button data-score="b" data-delta="-1">−</button><strong><span>الفريق B</span><b id="scoreB">0</b></strong><button data-score="b" data-delta="1">＋</button></div>
       </div>
       <div id="boardContent" class="board-content"></div>
-      <div class="board-controls"><button id="boardNext" class="btn btn-primary" type="button">التالي / Next</button><button id="boardReveal" class="btn board-secondary" type="button">إظهار الإجابة / Reveal</button></div>
+      <div class="board-controls"><button id="boardNext" class="btn btn-primary" type="button">التالي / Next</button><button id="boardReveal" class="btn board-secondary" type="button">إظهار الإجابة / Reveal</button><button id="boardWordWall" class="btn board-wordwall-btn" type="button">▦ جدار الكلمات / Word Wall</button></div>
+      <div id="wordWallPopup" class="wordwall-popup" aria-hidden="true">
+        <div class="wordwall-popup-backdrop" data-close-wordwall></div>
+        <section class="wordwall-popup-card" role="dialog" aria-modal="true" aria-label="Charter Word Wall">
+          <div class="wordwall-popup-head"><div><small>اختاري من الكلمات</small><h3>جدار كلمات الميثاق | Charter Word Wall</h3></div><button type="button" data-close-wordwall>×</button></div>
+          <p class="wordwall-popup-note">يمكن للطالبات اختيار الإجابة من الكلمات التالية. تظهر فقط عند طلب المعلمة.</p>
+          <div id="popupWordWall" class="popup-wordwall-grid"></div>
+        </section>
+      </div>
     </section>
   </div>
 

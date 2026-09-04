@@ -159,8 +159,8 @@ function renderCards(){
 }
 function openCard(c){
   currentCard=c;const d=c[lang],m=$('#cardModal');m.style.setProperty('--modal-color',COLORS[c.cat]);m.style.setProperty('--modal-soft',SOFT[c.cat]);
-  $('#modalContent').innerHTML=`<span class="modal-kicker">#${c.n} • ${t('grade')} ${c.grades}</span><h2>${d.title}</h2><span class="modal-element">${d.element}</span><div class="modal-block highlight"><h4>${t('modalChallenge')}</h4><p>${d.challenge}</p></div><div class="modal-block"><h4>${t('modalLink')}</h4><p>${d.link}</p></div><div class="modal-block"><h4>${t('modalEvidence')}</h4><p>${d.evidence}</p></div><div class="modal-block highlight"><h4>${t('modalImpact')}</h4><p>${d.impact}</p></div><div class="modal-actions"><button id="cardNominateBtn" class="btn btn-primary" type="button">${t('nominateStudents')}</button></div>`;
-  $('#cardNominateBtn').addEventListener('click',()=>{closeCardModal();openNomination(c)});m.classList.add('show');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
+  $('#modalContent').innerHTML=`<span class="modal-kicker">#${c.n} • ${t('grade')} ${c.grades}</span><h2>${d.title}</h2><span class="modal-element">${d.element}</span><div class="modal-block highlight"><h4>${t('modalChallenge')}</h4><p>${d.challenge}</p></div><div class="modal-block"><h4>${t('modalLink')}</h4><p>${d.link}</p></div><div class="modal-block"><h4>${t('modalEvidence')}</h4><p>${d.evidence}</p></div><div class="modal-block highlight"><h4>${t('modalImpact')}</h4><p>${d.impact}</p></div>`;
+  m.classList.add('show');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';
 }
 function closeCardModal(){const m=$('#cardModal');m.classList.remove('show');m.setAttribute('aria-hidden','true');document.body.style.overflow=''}
 function openNomination(card=null){currentCard=card;renderNominationContext();const m=$('#nominationModal');m.classList.add('show');m.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
@@ -175,7 +175,6 @@ $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{$$('.filter').forEa
 $$('[data-close-card-modal]').forEach(el=>el.addEventListener('click',closeCardModal));
 $$('[data-close-nomination]').forEach(el=>el.addEventListener('click',closeNomination));
 $('#generalNominationBtn').addEventListener('click',()=>openNomination(null));
-$('#hubNominateBtn')?.addEventListener('click',()=>openNomination(null));
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeCardModal();closeNomination()}});
 applyLanguage();
 
@@ -273,4 +272,19 @@ $$('[data-close-game]').forEach(x=>x.addEventListener('click',closeGame));
 $('#boardNext')?.addEventListener('click',nextBoardItem);$('#boardReveal')?.addEventListener('click',revealBoard);$('#timerStart')?.addEventListener('click',toggleTimer);$('#timerReset')?.addEventListener('click',resetTimer);
 $$('[data-score]').forEach(b=>b.addEventListener('click',()=>{const delta=Number(b.dataset.delta)||0;if(b.dataset.score==='a')scoreA=Math.max(0,scoreA+delta);else scoreB=Math.max(0,scoreB+delta);updateScores()}));
 $('#boardFullscreen')?.addEventListener('click',()=>{const el=$('.board-stage');if(!document.fullscreenElement)el?.requestFullscreen?.();else document.exitFullscreen?.()});
+
+function renderPopupWordWall(){
+ const box=$('#popupWordWall'); if(!box)return;
+ const groups=[
+  {ar:'الهوية الوطنية',en:'National Identity',items:CHARTER_WORDS.slice(0,9)},
+  {ar:'السمات',en:'Traits',items:CHARTER_WORDS.slice(9,15)},
+  {ar:'المهارات',en:'Skills',items:CHARTER_WORDS.slice(15)}
+ ];
+ box.innerHTML=groups.map(g=>`<section class="popup-word-group"><h4>${lang==='ar'?g.ar:g.en}</h4><div>${g.items.map(w=>`<button type="button" class="popup-wall-word">${w[lang==='ar'?0:1]}</button>`).join('')}</div></section>`).join('');
+}
+function openWordWallPopup(){renderPopupWordWall();const p=$('#wordWallPopup');p?.classList.add('show');p?.setAttribute('aria-hidden','false')}
+function closeWordWallPopup(){const p=$('#wordWallPopup');p?.classList.remove('show');p?.setAttribute('aria-hidden','true')}
+$('#boardWordWall')?.addEventListener('click',openWordWallPopup);
+$$('[data-close-wordwall]').forEach(x=>x.addEventListener('click',closeWordWallPopup));
+
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#gameModal')?.classList.contains('show'))closeGame()});
