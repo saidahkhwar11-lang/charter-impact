@@ -8,3 +8,5 @@
 .forms-embed-wrap iframe{display:block;width:100%;height:68vh;min-height:620px;border:0;background:#fff}
 @media(max-width:620px){.nomination-embed-card{width:calc(100% - 16px);margin:2vh auto;max-height:96vh;padding:18px}.forms-embed-wrap iframe{height:76vh;min-height:660px}}
 .ranking-loading{grid-column:1/-1;text-align:center;padding:28px;border:1px solid var(--line);border-radius:17px;background:#fff;color:var(--muted);font-weight:700}
+
+.term-filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 16px}.term-filter{border:1px solid var(--line);background:#fff;color:var(--burgundy);border-radius:999px;padding:8px 15px;font:inherit;font-size:12px;font-weight:800;cursor:pointer;transition:.18s}.term-filter:hover{border-color:#c99a9d;background:var(--burgundy-soft)}.term-filter.active{background:var(--burgundy);border-color:var(--burgundy);color:#fff;box-shadow:0 5px 14px rgba(111,23,27,.16)}@media(max-width:620px){.term-filters{display:grid;grid-template-columns:repeat(3,1fr)}.term-filter{padding:8px 5px;font-size:11px}}
