@@ -89,3 +89,5 @@ body{background:linear-gradient(180deg,#fbfaf8 0,#f6f2ed 100%)}
 .board-scoreline .board-timer strong{font-size:23px}
 @media(max-width:1050px){.groups-score-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:650px){.groups-score-grid{grid-template-columns:repeat(2,1fr)}.groups-score-grid .team-score span{font-size:10px}.groups-score-grid .team-score b{font-size:20px}}
+
+.student-id-reminder{font-weight:800;color:var(--burgundy)!important;margin-top:8px!important}.nomination-id-reminder{margin:10px 0 14px;padding:9px 12px;border-radius:12px;background:#fff8e8;border:1px solid #edd9aa;color:#6f171b;font-size:12px;font-weight:800}
